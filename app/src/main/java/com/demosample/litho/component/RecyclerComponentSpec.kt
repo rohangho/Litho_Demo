@@ -4,11 +4,7 @@ import android.graphics.Color
 import com.demosample.litho.model.NewsModel
 import com.facebook.litho.Component
 import com.facebook.litho.ComponentContext
-import com.facebook.litho.annotations.FromEvent
-import com.facebook.litho.annotations.LayoutSpec
-import com.facebook.litho.annotations.OnCreateLayout
-import com.facebook.litho.annotations.OnEvent
-import com.facebook.litho.annotations.Prop
+import com.facebook.litho.annotations.*
 import com.facebook.litho.sections.SectionContext
 import com.facebook.litho.sections.common.DataDiffSection
 import com.facebook.litho.sections.common.OnCheckIsSameContentEvent
@@ -17,13 +13,10 @@ import com.facebook.litho.sections.common.RenderEvent
 import com.facebook.litho.sections.widget.RecyclerCollectionComponent
 import com.facebook.litho.widget.ComponentRenderInfo
 import com.facebook.litho.widget.RenderInfo
-import com.facebook.yoga.YogaEdge
-import java.util.Arrays
 
 
 @LayoutSpec
 object RecyclerComponentSpec {
-
 
 
     @OnCreateLayout
@@ -36,6 +29,7 @@ object RecyclerComponentSpec {
                                     .onCheckIsSameItemEventHandler(RecyclerComponent.isSameItem(c))
                                     .onCheckIsSameContentEventHandler(RecyclerComponent.isSameContent(c))
                                     .build())
+                    .backgroundColor(Color.GRAY)
                     .disablePTR(true)
                     .build()
 
@@ -47,7 +41,7 @@ object RecyclerComponentSpec {
     ): RenderInfo =
             ComponentRenderInfo.create()
                     .component(
-                            TitleComponent.create(c).modelr(model)
+                            CardComponent.create(c).content(TitleComponent.create(c).modelr(model).build())
 //                                    .currentIndices(getUpdatedIndices(parentIndices, index))
                                     .build())
                     .build()
