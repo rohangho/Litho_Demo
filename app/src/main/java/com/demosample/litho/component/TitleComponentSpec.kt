@@ -20,32 +20,37 @@ import com.facebook.yoga.YogaEdge
   object TitleComponentSpec {
         @OnCreateLayout
         fun onCreateLayout(c: ComponentContext?,@Prop modelr: NewsModel): Component {
-            return Row.create(c).paddingDip(YogaEdge.ALL, 16F)
+            return Row.create(c).paddingDip(YogaEdge.ALL,5f)
                 .backgroundColor(Color.GRAY).child(
-                    Column.create(c).widthPercent(100f)
-                            .alignContent(YogaAlign.FLEX_END)
-                        .backgroundColor(Color.WHITE)
+                            Row.create(c).paddingDip(YogaEdge.ALL,10f)
+                                    .backgroundRes(R.drawable.circular_rec).child(
+                    Column.create(c).widthPercent(100f).alignSelf(YogaAlign.CENTER)
+                       .widthDip(1f)
                         .child(
                             Text.create(c)
+                                    .paddingDip(YogaEdge.LEFT,10f)
                                 .text(modelr.soursce)
                                 .textSizeSp(15F)
                         )
                         .child(
                             Text.create(c)
+                                    .paddingDip(YogaEdge.LEFT,10f)
                                 .text(modelr.headline)
-                                .textSizeSp(30F)
+                                .textSizeSp(20F)
                         )
 
                         .child(
-                            Text.create(c)
+                            Text.create(c).alignment(TextAlignment.LEFT)
+                                    .paddingDip(YogaEdge.LEFT,10f)
                                 .text(modelr.timeAge)
                                 .textSizeSp(10F)
                         )
                 ).child(
-                    Image.create(c).drawableRes(modelr.imgRes).widthDip(100F)
-                            .backgroundColor(Color.WHITE)
+                    Image.create(c).drawableRes(modelr.imgRes).widthDip(100F).alignSelf(YogaAlign.FLEX_END)
                         .heightDip(100F)
-                ).build()
+
+                    )
+                    ).build()
 
         }
 

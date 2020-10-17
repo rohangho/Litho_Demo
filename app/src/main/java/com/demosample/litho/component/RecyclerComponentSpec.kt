@@ -1,5 +1,6 @@
 package com.demosample.litho.component
 
+import android.graphics.Color
 import com.demosample.litho.model.NewsModel
 import com.facebook.litho.Component
 import com.facebook.litho.ComponentContext
@@ -16,6 +17,7 @@ import com.facebook.litho.sections.common.RenderEvent
 import com.facebook.litho.sections.widget.RecyclerCollectionComponent
 import com.facebook.litho.widget.ComponentRenderInfo
 import com.facebook.litho.widget.RenderInfo
+import com.facebook.yoga.YogaEdge
 import java.util.Arrays
 
 
@@ -35,7 +37,6 @@ object RecyclerComponentSpec {
                                     .onCheckIsSameContentEventHandler(RecyclerComponent.isSameContent(c))
                                     .build())
                     .disablePTR(true)
-
                     .build()
 
 
